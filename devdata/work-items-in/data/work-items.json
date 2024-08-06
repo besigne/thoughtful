@@ -1,0 +1,22 @@
+[
+  {
+    "payload": {
+      "search": "this should be the search",
+      "category": [
+        "World",
+        "U.S.",
+        "Election 2024",
+        "Politics",
+        "Sports",
+        "Olympics",
+        "Entertainment",
+        "Business",
+        "Science",
+        "Fact Check",
+        "Oddities",
+        "Be Well"
+      ]
+    },
+    "files": {}
+  }
+]

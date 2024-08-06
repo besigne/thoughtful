@@ -30,6 +30,7 @@ class Scrapper:
 
   def category_select(self):
     for item in self.work_item["category"]:
+      self.div_block_remover()
       self.selenium.click_element(f'//a[contains(text(), "{item}")]')
       payload = self.collector()
       Writer(item, payload)
@@ -41,6 +42,7 @@ class Scrapper:
     
     for item in items:
       try:
+        self.div_block_remover()
         title = self.selenium.find_element(locator="class:PagePromo-title", parent=item).text
         description = self.selenium.find_element(locator="class:PagePromoContentIcons-text", parent=item).text
         image = self.selenium.find_element(locator="class:Image", parent=item).get_attribute("src")

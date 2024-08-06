@@ -54,7 +54,7 @@ class Scrapper:
     return payload
   
   def div_block_remover(self):
-    try:
+    # try:
       removables = ["onetrust-pc-dark-filter ot-fade-in", "ot-dpd-desc", "onetrust-pc-btn-handler"]
       for remove in removables:
         if not self.selenium.find_element(f"//*[@class=\"{remove}\"]"):
@@ -65,5 +65,5 @@ class Scrapper:
         if self.selenium.find_element(f"//*[@class=\"{remove}\"]"):
           self.div_block_remover()    
         
-    except ElementNotFound:
-      pass
+    # except ElementNotFound:
+      # pass

@@ -19,7 +19,7 @@ class Scrapper:
   
   def run(self):
     self.category_select()
-    # self.search_on_searchbar()
+    self.search_on_searchbar()
     clean_up()
     
   def search_on_searchbar(self):
@@ -50,3 +50,10 @@ class Scrapper:
       payload.append({"title": title, "description": description, "image": image})
     
     return payload
+  
+  def div_block_remover(self):
+    try:
+      item = self.selenium.find_element("//div[@class=\"onetrust-pc-dark-filter ot-fade-in\"]")
+      self.selenium.execute_javascript("arguments[0].remove()", item)
+    except ElementNotFound:
+      pass

@@ -57,7 +57,7 @@ class Scrapper:
     try:
       removables = ["onetrust-pc-dark-filter ot-fade-in", "ot-dpd-desc", "onetrust-pc-btn-handler"]
       for remove in removables:
-        js_string = f"var element = document.getElementsByClassName(\"{remove}\")[0]; if element {{element.remove()}};"
+        js_string = f"var element = document.getElementsByClassName(\"{remove}\")[0]; if (element) {{element.remove()}};"
         self.selenium.execute_javascript(js_string)
                 
     except ElementNotFound:

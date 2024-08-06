@@ -6,7 +6,7 @@ class ExtendedSelenium(Selenium):
 
     def __init__(self, *args, **kwargs):
         Selenium.__init__(self, *args, **kwargs)
-        cdm = ChromeDriverManager(link_path="AUTO").download_and_install()
+        cdm = ChromeDriverManager(link_path="AUTO")
         cdm.download_and_install()
         
     @keyword

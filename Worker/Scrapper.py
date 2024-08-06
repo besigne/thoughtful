@@ -59,6 +59,6 @@ class Scrapper:
       for possible in dict:
         self.selenium.find_element(f"//div[@class=\"{possible}\"]")
         js_string = f"var element = document.getElementsByClassName(\"{possible}\")[0];element.remove();"
-      self.selenium.execute_javascript(js_string)
+        self.selenium.execute_javascript(js_string)
     except ElementNotFound:
       pass

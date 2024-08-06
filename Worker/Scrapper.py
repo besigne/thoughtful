@@ -61,7 +61,7 @@ class Scrapper:
           continue
         js_string = f"var element = document.getElementsByClassName(\"{remove}\")[0];element.remove();"
         self.selenium.execute_javascript(js_string)
-      
+        
         if len(self.selenium.find_element(f"//*[@class=\"{remove}\"]"))>0:
           self.div_block_remover()    
         

@@ -35,8 +35,7 @@ class Scrapper:
       self.div_block_remover()
       navbar = self.selenium.find_element(locator="class:Page-header-navigation")
       item = self.selenium.find_element(f'//a[contains(text(), "{item}")]', parent=navbar)
-      WebDriverWait(self.selenium, 20).until(EC.element_to_be_clickable(item))
-      item.click()
+      WebDriverWait(self.selenium, 30).until(EC.element_to_be_clickable(item)).click()
       payload = self.collector()
       Writer(item, payload)
     

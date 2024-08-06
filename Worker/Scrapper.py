@@ -1,4 +1,6 @@
 from ExtendendSelenium import ExtendedSelenium
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from SeleniumLibrary.errors import ElementNotFound
 from RPA.Robocorp.WorkItems import WorkItems
@@ -32,7 +34,9 @@ class Scrapper:
     for item in self.work_item["category"]:
       self.div_block_remover()
       navbar = self.selenium.find_element(locator="class:Page-header-navigation")
-      self.selenium.find_element(f'//a[contains(text(), "{item}")]', parent=navbar).click()
+      item = self.selenium.find_element(f'//a[contains(text(), "{item}")]', parent=navbar)
+      WebDriverWait(self.selenium, 1000)
+      item.click()
       payload = self.collector()
       Writer(item, payload)
     

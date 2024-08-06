@@ -21,7 +21,8 @@ class ExtendedSelenium(Selenium):
     def open_site(self, url, **kwargs):
         logging.basicConfig(level=logging.DEBUG)
         options = Options()
-        options.headless = True
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
         self.open_browser(
             url=url,
             browser="firefox",

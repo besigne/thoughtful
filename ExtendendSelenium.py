@@ -1,6 +1,9 @@
 from RPA.Browser.Selenium import Selenium
+from selenium.webdriver.firefox.options import Options
 from webdrivermanager import GeckoDriverManager
 from SeleniumLibrary.base import keyword
+import logging
+
 
 class ExtendedSelenium(Selenium):
 
@@ -16,12 +19,13 @@ class ExtendedSelenium(Selenium):
 
     @keyword
     def open_site(self, url, **kwargs):
-        desired_capabilities = {
-            "goog:loggingPrefs" : { 'browser':'ALL',  'driver': 'ALL', 'performance': 'ALL' }
-        }
+        logging.basicConfig(level=logging.DEBUG)
+        options = Options()
+        options.headless = True
         self.open_browser(
             url=url,
-            desired_capabilities=desired_capabilities,
+            browser="firefox",
+            options=options,
             **kwargs
         )
 

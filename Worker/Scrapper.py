@@ -31,7 +31,7 @@ class Scrapper:
   def category_select(self):
     for item in self.work_item["category"]:
       self.div_block_remover()
-      self.selenium.click_element(f'//a[contains(text(), "{item}")]')
+      self.selenium.find_element(f'//a[contains(text(), "{item}")]').click()
       payload = self.collector()
       Writer(item, payload)
     

@@ -58,10 +58,8 @@ class Scrapper:
       removables = ["onetrust-pc-dark-filter ot-fade-in", "ot-dpd-desc", "onetrust-pc-btn-handler"]
       for remove in removables:
         self.selenium.find_element(f"//*[@class=\"{remove}\"]")
-        js_string = f"var element = document.getElementsByClassName(\"{remove}\")[0];element.remove();"
+        js_string = f"var elements = document.querySelectorAll(\".{remove}\");elements.forEach(function(element) {{ element.remove(); }})"
         self.selenium.execute_javascript(js_string)
         
-        if self.selenium.find_element(f"//*[@class=\"{remove}\"]"):
-          self.div_block_remover()
     except ElementNotFound:
       pass

@@ -56,7 +56,7 @@ class Scrapper:
   def div_block_remover(self):
     try:
       self.selenium.find_element("//div[@class=\"onetrust-pc-dark-filter ot-fade-in\"]")
-      js_string = "var element = document.getElementByClassName(\"onetrust-pc-dark-filter ot-fade-in\");element.remove();"
+      js_string = "var element = document.getElementsByClassName(\"onetrust-pc-dark-filter ot-fade-in\")[0];element.remove();"
       self.selenium.execute_javascript(js_string)
     except ElementNotFound:
       pass

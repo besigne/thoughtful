@@ -1,4 +1,4 @@
-from RPA.Browser.Selenium import Selenium, WebDriverCreator
+from RPA.Browser.Selenium import Selenium
 from webdrivermanager import ChromeDriverManager
 from SeleniumLibrary.base import keyword
 
@@ -6,7 +6,7 @@ class ExtendedSelenium(Selenium):
 
     def __init__(self, *args, **kwargs):
         Selenium.__init__(self, *args, **kwargs)
-        cdm = WebDriverCreator(ChromeDriverManager(link_path="AUTO"))
+        cdm = ChromeDriverManager(link_path="AUTO").download_and_install()
         cdm.download_and_install()
         
     @keyword

@@ -34,8 +34,8 @@ class Scrapper:
     for item in self.work_item["category"]:
       navbar = self.selenium.find_element(locator="class:Page-header-navigation")
       item = self.selenium.find_element(f'//a[contains(text(), "{item}")]', parent=navbar)
-      self.div_block_remover()
       event = WebDriverWait(self.selenium, 30).until(EC.element_to_be_clickable(item))
+      self.div_block_remover()
       event.click()
       payload = self.collector()
       Writer(item, payload)
@@ -61,6 +61,6 @@ class Scrapper:
   def div_block_remover(self):
     removables = ["onetrust-pc-dark-filter ot-fade-in", "ot-dpd-desc", "onetrust-pc-btn-handler"]
     for remove in removables:
-      # element = self.selenium.find_element(f"//*[@class='{remove}']")
       self.selenium.execute_javascript(f"element = document.getElementsByClassName(\"{remove}\")[0]; if (element) {{element.remove();}}")
+      self.selenium.execute_javascript(f"element = document.getElementsById(\"{remove}\")[0]; if (element) {{element.remove();}}")
               

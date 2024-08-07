@@ -32,10 +32,10 @@ class Scrapper:
 
   def category_select(self):
     for item in self.work_item["category"]:
+      self.div_block_remover()
       navbar = self.selenium.find_element(locator="class:Page-header-navigation")
       item = self.selenium.find_element(f'//a[contains(text(), "{item}")]', parent=navbar)
-      self.div_block_remover()
-      event = WebDriverWait(self.selenium, 30).until(EC.element_to_be_clickable(item))
+      event = WebDriverWait(self.selenium, 200).until(EC.element_to_be_clickable(item))
       event.click()
       payload = self.collector()
       Writer(item, payload)

@@ -61,7 +61,7 @@ class Scrapper:
     try:
         removables = ["onetrust-pc-dark-filter ot-fade-in", "ot-dpd-desc", "onetrust-pc-btn-handler"]
         for remove in removables:
-            js_string = f"var elements = document.querySelectorAll('.{remove}'); elements.forEach(function(element) {{ element.remove(); }});"
-            self.selenium.execute_javascript(js_string)
+            element = self.selenium.find_element(f"//*[@class:'{remove}']")
+            self.selenium.execute_javascript("arguments[0].style.visibility='hidden'", element)
     except Exception as e:
         print(f"An error occurred: {e}")

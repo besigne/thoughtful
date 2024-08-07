@@ -16,6 +16,6 @@ testrun/*
 .~lock*
 *.pkl
 .vscode/
-geckodriver
+chromedriver
 Worker/__pycache__/
 __pycache__/

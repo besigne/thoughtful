@@ -1,6 +1,6 @@
 from RPA.Browser.Selenium import Selenium
 from selenium.webdriver.firefox.options import Options
-from webdrivermanager import GeckoDriverManager
+from webdrivermanager import ChromeDriverManager
 from SeleniumLibrary.base import keyword
 import logging
 
@@ -9,7 +9,7 @@ class ExtendedSelenium(Selenium):
 
     def __init__(self, *args, **kwargs):
         Selenium.__init__(self, *args, **kwargs)
-        cdm = GeckoDriverManager(link_path="AUTO")
+        cdm = ChromeDriverManager(link_path="AUTO")
         cdm.download_and_install()
         
     @keyword
@@ -25,7 +25,7 @@ class ExtendedSelenium(Selenium):
         options.add_argument('--no-sandbox')
         self.open_browser(
             url=url,
-            browser="firefox",
+            browser="chrome",
             options=options,
             **kwargs
         )

@@ -64,13 +64,6 @@ class Scrapper:
         self.selenium.execute_javascript(f"element = document.getElementsByClassName(\"{remove}\")[0]; if (element) {{element.remove();}}")
         
         try:
-          self.selenium.find_element(f"//*[@class=\"{remove}\"]")
-          self.div_block_remover()
-          
-        except ElementNotFound:
-          pass
-        
-        try:
           self.selenium.find_element(f"//*[@id=\"{remove}\"]")
           self.selenium.execute_javascript(f"element = document.getElementById(\"{remove}\")[0]; if (element) {{element.remove();}}")
         except ElementNotFound:

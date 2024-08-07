@@ -62,5 +62,5 @@ class Scrapper:
     removables = ["onetrust-pc-dark-filter ot-fade-in", "ot-dpd-desc", "onetrust-pc-btn-handler"]
     for remove in removables:
       self.selenium.execute_javascript(f"element = document.getElementsByClassName(\"{remove}\")[0]; if (element) {{element.remove();}}")
-      self.selenium.execute_javascript(f"element = document.getElementsById(\"{remove}\")[0]; if (element) {{element.remove();}}")
+      self.selenium.execute_javascript(f"element = document.getElementById(\"{remove}\")[0]; if (element) {{element.remove();}}")
               
